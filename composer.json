@@ -1,0 +1,32 @@
+{
+    "name": "archvayu/laravel-enum",
+    "description": "Laravel package to generate enum type objects",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ArchVayu\\LaravelEnum\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pawan Kandel",
+            "email": "pkkandel1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^10.39",
+        "illuminate/console": "^10.39"
+    },
+    "prefer-stable": true,
+    "require-dev": {
+        "pestphp/pest": "^2.30"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
