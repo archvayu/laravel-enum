@@ -14,18 +14,28 @@
             "email": "pkkandel1@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": "^8.2",
         "illuminate/support": "^10.39",
         "illuminate/console": "^10.39"
     },
-    "prefer-stable": true,
     "require-dev": {
         "pestphp/pest": "^2.30",
         "orchestra/testbench": "^8.19"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ArchVayu\\LaravelEnum\\Providers\\LaravelEnumServiceProvider"
+            ]
+        }
+    },
     "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true
         }
