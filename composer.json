@@ -22,11 +22,17 @@
     },
     "prefer-stable": true,
     "require-dev": {
-        "pestphp/pest": "^2.30"
+        "pestphp/pest": "^2.30",
+        "orchestra/testbench": "^8.19"
     },
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ArchVayu\\LaravelEnum\\Tests\\": "tests/"
         }
     }
 }

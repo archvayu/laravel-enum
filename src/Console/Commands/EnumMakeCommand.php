@@ -36,6 +36,7 @@ class EnumMakeCommand extends GeneratorCommand
     protected function getStub(): string
     {
         $type = $this->option('type');
+        $type = $type ?? 'pure';
         return __DIR__ . "/../../../stubs/enum-{$type}.stub";
     }
 
@@ -57,21 +58,25 @@ class EnumMakeCommand extends GeneratorCommand
             return false;
         }
 
-        if (!in_array($this->option('type'), ['pure', 'backed'])) {
+        $type = $this->option('type');
+        $type = $type ?? 'pure';
+
+        if (!in_array($type, ['pure', 'backed'])) {
             $this->components->error('The enum type is invalid. Use --type={pure|backed}');
             return false;
         }
 
-        $type = $this->option('type');
-        $scalar = $this->option('scalar');
-        if ($type == 'backed' && $scalar) {
-            if (!in_array($scalar, ['int', 'string'])) {
-                $this->components->error('The scalar type is invalid.');
+        if ($type == 'backed') {
+            $scalar = $this->option('scalar');
+            if ($type == 'backed' && $scalar) {
+                if (!in_array($scalar, ['int', 'string'])) {
+                    $this->components->error('The scalar type is invalid.');
+                    return false;
+                }
+            } else {
+                $this->components->error('The scalar type is not defined. Use --scalar={int|string}');
                 return false;
             }
-        } else {
-            $this->components->error('The scalar type is not defined. Use --scalar={int|string}');
-            return false;
         }
 
         $name = $this->qualifyClass($this->getNameInput());
